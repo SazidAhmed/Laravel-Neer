@@ -31,8 +31,10 @@
                   
                 </div>
                 <div class="col-4 text-right">
+                  @if(isset(auth()->user()->role['permissions']['payment']['can-add']))
                   <!-- Button trigger modal -->
                   <button type="button" class="btn btn-sm btn-round btn-success" data-toggle="modal" data-target="#addmodal"> <i class="material-icons text-white">addchart</i>Create</button>
+                  @endif
                 </div>
               </div>
             </div>
@@ -68,14 +70,18 @@
                         <a href="#" data-toggle="modal" data-target="#viewmodal{{$payment->id}}">
                         <i class="material-icons text-info">visibility</i>
                         </a>
+                        @if(isset(auth()->user()->role['permissions']['payment']['can-edit']))
                         <!--Edit Button -->
                         <a href="#" data-toggle="modal" data-target="#editmodal{{$payment->id}}">
                         <i class="material-icons text-success">edit</i>
                         </a>
+                        @endif
+                        @if(isset(auth()->user()->role['permissions']['payment']['can-delete']))
                         <!--Delete Button -->
                         <a href="#" data-toggle="modal" data-target="#deletemodal{{$payment->id}}">
                         <i class="material-icons text-rose">delete</i>
                         </a>
+                        @endif
                       </td>
                     </tr>
                   @endforeach

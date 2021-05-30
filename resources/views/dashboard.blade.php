@@ -74,7 +74,7 @@
               <div class="card-footer">
                 <div class="stats">
                   <i class="material-icons text-danger">warning</i>
-                  <a href="{{ route('notices.index') }}">View Here...</a>
+                  <a href="{{ route('notice.index') }}">View Here...</a>
                 </div>
               </div>
             </div>

@@ -53,19 +53,21 @@
           </li>
           @endif
           @if(isset(auth()->user()->role['permissions']['role']['can-list']))
-          <li class="nav-item{{ $activePage == 'roles' ? ' active' : '' }} ">
+          <li class="nav-item{{ $activePage == 'permissions' ? ' active' : '' }} ">
             <a class="nav-link" href="{{ route('roles.index') }}">
               <i class="material-icons">accessibility</i>
               <p> Role-Permission </p>
             </a>
           </li>
           @endif
+          @if(isset(auth()->user()->role['permissions']['payment']['can-list']))
           <li class="nav-item{{ $activePage == 'payments' ? ' active' : '' }}">
             <a class="nav-link" href="{{ route('payment.index') }}">
               <i class="material-icons">monetization_on</i>
               <p> Payments </p>
             </a>
           </li>
+          @endif
           <!--Info Management -->
           @if(isset(auth()->user()->role['permissions']['info']['can-list']))
           <li class="nav-item{{ ($activePage == 'info' || $activePage == 'family' || $activePage == 'emergency' || $activePage == 'extra') ? ' active' : '' }} ">
@@ -107,7 +109,7 @@
           @endif
           @if(isset(auth()->user()->role['permissions']['notice']['can-list']))
           <li class="nav-item{{ $activePage == 'notice' ? ' active' : '' }}">
-            <a class="nav-link" href="{{ route('notice.create') }}">
+            <a class="nav-link" href="{{ route('notice.index') }}">
               <i class="material-icons">date_range</i>
               <p> Notice</p>
             </a>
